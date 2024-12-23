@@ -13,14 +13,12 @@ public class Lines extends Window implements GLEventListener {
     gl.glClearColor(1, 1, 1, 1);
     gl.glClear(GL2.GL_COLOR_BUFFER_BIT);
     gl.glColor3i(0, 0, 0);
-    dda_line(drawable);
-    bresenhamLine(drawable);
+    dda_line(drawable, 50, 250, 200, 100);
+    bresenhamLine(drawable, 100, 200, 200, 50);
   }
 
-  public void dda_line(GLAutoDrawable drawable) {
+  public void dda_line(GLAutoDrawable drawable, int x1, int y1, int x2, int y2) {
     GL2 gl = drawable.getGL().getGL2();
-    int x1 = 50, y1 = 250;
-    int x2 = 200, y2 = 100;
     System.out.println("pos1: (" + x1 + ", " + y1 + ")");
     System.out.println("pos1: (" + x2 + ", " + y2 + ")");
 
@@ -51,10 +49,8 @@ public class Lines extends Window implements GLEventListener {
     }
   }
 
-  public void bresenhamLine(GLAutoDrawable drawable) {
+  public void bresenhamLine(GLAutoDrawable drawable, int x1, int y1, int x2, int y2) {
     GL2 gl = drawable.getGL().getGL2();
-    int x1 = 20, y1 = 50;
-    int x2 = 200, y2 = 200;
     System.out.println("pos1: (" + x1 + ", " + y1 + ")");
     System.out.println("pos1: (" + x2 + ", " + y2 + ")");
 
@@ -66,20 +62,40 @@ public class Lines extends Window implements GLEventListener {
 
     int p = 2 * dx - dy;
 
-    int x = x1;
-    int y = y1;
-    while (x < x2) {
+    int sx = x1 < x2 ? 1 : -1;
+    int sy = y1 < y2 ? 1 : -1;
+
+    int x = x1, y = y1;
+
+    boolean flagX = false;
+
+    while (true) {
       gl.glPointSize(10);
       gl.glColor3d(0, 1, 0);
       gl.glBegin(GL2.GL_POINTS);
       gl.glVertex2i(x, y);
       gl.glEnd();
-      x++;
-      if (p < 0) {
+      flagX = false;
+
+      if (sx < 0 && x < x2) {
+        flagX = true;
+      }
+      else if (sx > 0 && x >= x2) {
+        flagX = true;
+      }
+
+      if (flagX) {
+        break;
+      }
+
+      System.out.println("x: " + x + " y: " + y);
+
+      x += sx;
+      if (p <= 0) {
         p += 2 * dx;
       } else {
         p += 2 * dx - 2 * dy;
-        y++;
+        y += sy;
       }
     }
   }
