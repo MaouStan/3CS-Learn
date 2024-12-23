@@ -12,7 +12,7 @@ public class Lines extends Window implements GLEventListener {
   private int frameIndex = 0;
 
   Lines() {
-    super("DDA Line Drawing Algorithm");
+    super("Class - Line Drawing Algorithm");
   }
 
   @Override
@@ -51,9 +51,6 @@ public class Lines extends Window implements GLEventListener {
     if (frameIndex >= Math.max(ddaPoints.size(), bresenhamPoints.size())) {
       frameIndex = 0;
     }
-    System.out.println("" + bresenhamPoints.size());
-    System.out.println("" + ddaPoints.size());
-    System.out.println(frameIndex);
     frameIndex++;
   }
 
@@ -76,7 +73,7 @@ public class Lines extends Window implements GLEventListener {
     // System.out.println("X-Increment: " + xinc);
     // System.out.println("Y-Increment: " + yinc);
 
-    int x = x1, y = y1;
+    float x = x1, y = y1;
 
     for (int i = 0; i < steps; i++) {
       // gl.glPointSize(10);
@@ -106,7 +103,7 @@ public class Lines extends Window implements GLEventListener {
     int sx = x1 < x2 ? 1 : -1;
     int sy = y1 < y2 ? 1 : -1;
 
-    int x = x1, y = y1;
+    float x = x1, y = y1;
 
     boolean flagX = false;
 
@@ -116,7 +113,7 @@ public class Lines extends Window implements GLEventListener {
       // gl.glBegin(GL2.GL_POINTS);
       // gl.glVertex2i(x, y);
       // gl.glEnd();
-      bresenhamPoints.add(new Point(x, y));
+      bresenhamPoints.add(new Point(Math.round(x), Math.round(y)));
       flagX = false;
 
       if (sx < 0 && x < x2) {
