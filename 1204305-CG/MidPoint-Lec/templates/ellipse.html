@@ -36,12 +36,20 @@
   <div class="container mt-5">
     <form method="POST" class="mb-4">
       <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8">
           <div class="input-group">
             <span class="input-group-text">Rx:</span>
-            <input type="number" class="form-control" id="rx" name="rx" required>
+            <input type="number" class="form-control" id="rx" name="rx" required
+              value="{{ request.form['rx'] if request.form['rx'] }}">
             <span class="input-group-text">Ry:</span>
-            <input type="number" class="form-control" id="ry" name="ry" required>
+            <input type="number" class="form-control" id="ry" name="ry" required
+              value="{{ request.form['ry'] if request.form['ry'] }}">
+            <span class="input-group-text">Center X:</span>
+            <input type="number" class="form-control" id="xcenter" name="xcenter" required
+              value="{{ request.form['xcenter'] if request.form['xcenter'] }}">
+            <span class="input-group-text">Center Y:</span>
+            <input type="number" class="form-control" id="ycenter" name="ycenter" required
+              value="{{ request.form['ycenter'] if request.form['ycenter'] }}">
             <button type="submit" class="btn btn-primary">Generate Tables</button>
           </div>
         </div>

@@ -36,10 +36,17 @@
   <div class="container mt-5">
     <form method="POST" class="mb-4">
       <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-md-8">
           <div class="input-group">
             <span class="input-group-text">Radius:</span>
-            <input type="number" class="form-control" id="radius" name="radius" required>
+            <input type="number" class="form-control" id="radius" name="radius" required
+              value="{{ request.form['radius'] if request.form['radius'] }}">
+            <span class="input-group-text">Center X:</span>
+            <input type="number" class="form-control" id="xcenter" name="xcenter"
+              value="{{ request.form['xcenter'] if request.form['xcenter'] else 0 }}">
+            <span class="input-group-text">Center Y:</span>
+            <input type="number" class="form-control" id="ycenter" name="ycenter"
+              value="{{ request.form['ycenter'] if request.form['ycenter'] else 0 }}">
             <button type="submit" class="btn btn-primary">Generate Tables</button>
           </div>
         </div>

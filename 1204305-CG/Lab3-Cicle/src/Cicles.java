@@ -135,7 +135,7 @@ public class Cicles extends Window {
         GL2 gl = drawable.getGL().getGL2();
         gl.glMatrixMode(GL2.GL_PROJECTION);
         gl.glLoadIdentity();
-        gl.glOrtho(0, 300, 300, 0, -1, 1); // 2D orthographic projection
+        gl.glOrtho(0, 300, 300, 0, -1, 1);
         gl.glMatrixMode(GL2.GL_MODELVIEW);
     }
 }
