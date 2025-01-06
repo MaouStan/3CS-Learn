@@ -1,18 +1,40 @@
-## Getting Started
+# Circle Drawing Lab
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This project implements various circle and shape drawing algorithms using OpenGL in Java.
 
-## Folder Structure
+## Features
 
-The workspace contains two folders by default, where:
+The project includes several exercises and implementations:
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+1. **Basic Circle Drawing** ([Cicles.java](src/Cicles.java))
+   - Points and line-based circle drawing
+   - Ellipse drawing with different methods
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+2. **Animated Circles** ([CiclesAnim.java](src/CiclesAnim.java))
+   - Animated circle drawing demonstration
+   - Progressive rendering of circles and ellipses
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+3. **Special Exercises**
+   - Semicircle Drawing ([Exercise4.java](src/Exercise4.java))
+   - Segmented Circle with X ([Exercise5.java](src/Exercise5.java))
+   - Concentric Circles and Triangle ([Exercise6.java](src/Exercise6.java))
 
-## Dependency Management
+4. **Bonus Feature** ([Bonus.java](src/Bonus.java))
+   - Stick Man Pattern using circles and ellipses
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+## Examples
+![](image.png)
+
+## Project Structure
+
+```
+src/
+├── App.java           - Main application entry point
+├── Window.java        - Base window implementation
+├── Cicles.java        - Basic circle implementations
+├── CiclesAnim.java    - Animated circle drawing
+├── Exercise4.java     - Semicircle implementation
+├── Exercise5.java     - Circle with X pattern
+├── Exercise6.java     - Concentric circles
+└── Bonus.java         - Stick man pattern
+```
