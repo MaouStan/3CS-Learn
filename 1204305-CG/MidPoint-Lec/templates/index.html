@@ -66,21 +66,21 @@
               <tr>
                 <th>K</th>
                 <th>จุด (x, y)</th>
+                <th>ค่า p<sub>k</sub></th>
                 <th>สมการที่ใช้</th>
                 <th>คำนวณ p<sub>k</sub></th>
-                <th>ค่า p<sub>k</sub></th>
               </tr>
             </thead>
             <tbody>
-              {% for row in data %}
-              <tr>
+                {% for row in data %}
+                <tr>
                 <td>{{ row[0] }}</td>
                 <td>({{ row[1][0] }}, {{ row[1][1] }})</td>
-                <td>{{ row[2] }}</td>
-                <td>{{ row[3] }}</td>
                 <td>{{ row[4] }}</td>
-              </tr>
-              {% endfor %}
+                <td>{{ row[2] | safe }}</td>
+                <td>{{ row[3] | safe }}</td>
+                </tr>
+                {% endfor %}
             </tbody>
           </table>
         </div>
