@@ -9,7 +9,7 @@ public class TranslateRectangle extends Window {
   private int offsetX = 0, offsetY = 0; // Animated movement
   private boolean movingForward = true; // Toggle direction
   private long lastTime = System.currentTimeMillis();
-  private boolean paused = false;
+  private boolean paused = true;
 
   TranslateRectangle() {
     super("Translate Rectangle");
