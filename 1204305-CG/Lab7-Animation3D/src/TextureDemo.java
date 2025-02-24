@@ -13,6 +13,7 @@ public class TextureDemo extends Window implements KeyListener {
     private float smallCubeOffsetX = 0.0f;
     private float smallCubeOffsetY = 0.0f;
     private float smallCubeOffsetZ = 0.0f;
+    private float rotate = -10;
 
     TextureDemo() {
         super("Texture Demo");
@@ -32,6 +33,8 @@ public class TextureDemo extends Window implements KeyListener {
 
         gl.glPushMatrix();
         gl.glTranslatef(smallCubeOffsetX, smallCubeOffsetY - 0.5f, smallCubeOffsetZ);
+        // rotate stick man to curve head look down
+        gl.glRotatef(rotate, 1.0f, 0.0f, 0.0f);
         gl.glDisable(GL2.GL_CULL_FACE);
         drawStickMan(drawable);
         gl.glEnable(GL2.GL_CULL_FACE);
@@ -197,7 +200,7 @@ public class TextureDemo extends Window implements KeyListener {
         GL2 gl = drawable.getGL().getGL2();
         // Head (red)
         gl.glPushMatrix(); // push head transform
-        gl.glTranslatef(0.0f, 0.35f, 0.0f); // head center
+        gl.glTranslatef(0.0f, 0.3f, 0.0f); // head center
         drawUniformCube(drawable, 0.0f, 0.0f, 0.0f, 0.1f, 1.0f, 0.0f, 0.0f);
         // Left Eye (white)
         gl.glPushMatrix();
@@ -232,12 +235,12 @@ public class TextureDemo extends Window implements KeyListener {
         gl.glPopMatrix();
         // Left Leg (yellow)
         gl.glPushMatrix();
-        gl.glTranslatef(-0.06f, -0f, 0.0f);
+        gl.glTranslatef(-0.06f, 0.05f, 0.0f);
         drawUniformCube(drawable, 0.0f, 0.0f, 0.0f, 0.05f, 1.0f, 1.0f, 0.0f);
         gl.glPopMatrix();
         // Right Leg (cyan)
         gl.glPushMatrix();
-        gl.glTranslatef(0.06f, -0f, 0.0f);
+        gl.glTranslatef(0.06f, 0.05f, 0.0f);
         drawUniformCube(drawable, 0.0f, 0.0f, 0.0f, 0.05f, 0.0f, 1.0f, 1.0f);
         gl.glPopMatrix();
     }
